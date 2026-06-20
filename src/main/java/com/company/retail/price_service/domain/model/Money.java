@@ -1,6 +1,7 @@
 package com.company.retail.price_service.domain.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public final class Money {
     private final BigDecimal amount;
@@ -23,5 +24,25 @@ public final class Money {
 
     public String getCurrency() {
         return currency;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Money money = (Money) o;
+                
+        return amount.compareTo(money.amount) == 0 && 
+               Objects.equals(currency, money.currency);
+    }
+
+    @Override
+    public int hashCode() {        
+        return Objects.hash(amount.stripTrailingZeros(), currency);
+    }
+    
+    @Override
+    public String toString() {
+        return amount + " " + currency;
     }
 }
