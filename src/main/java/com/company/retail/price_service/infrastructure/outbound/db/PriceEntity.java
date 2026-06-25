@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 @Setter
 public class PriceEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "PRICE_LIST")
     private Integer priceList;
 

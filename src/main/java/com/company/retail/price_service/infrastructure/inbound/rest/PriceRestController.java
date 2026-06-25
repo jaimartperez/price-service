@@ -28,7 +28,7 @@ public class PriceRestController {
         this.getApplicablePriceUseCase = getApplicablePriceUseCase;
     }
 
-    @GetMapping
+    @GetMapping("/applicable")
     public ResponseEntity<PriceResponse> getApplicablePrice(
             @RequestParam("applicationDate") 
             @NotNull(message = "La fecha de aplicación es requerida") 
